@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import postgres from "postgres";
 import {
   invoices,
@@ -7,7 +7,7 @@ import {
   users,
 } from "../../lib/placeholder-data";
 
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
+const sql = postgres(process.env.POSTGRES_URL!, {});
 
 async function seedUsers() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
